@@ -7,7 +7,7 @@
 
 namespace Spryker\Zed\ProductOptionStorage\Communication\Plugin\Event\Listener;
 
-use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionValueTableMap;
+use Orm\Zed\ProductOption\Persistence\Map\SpyProductOptionValuePriceTableMap;
 use Spryker\Zed\Event\Dependency\Plugin\EventBulkHandlerInterface;
 use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
 
@@ -15,7 +15,7 @@ use Spryker\Zed\PropelOrm\Business\Transaction\DatabaseTransactionHandlerTrait;
  * @method \Spryker\Zed\ProductOptionStorage\Persistence\ProductOptionStorageQueryContainerInterface getQueryContainer()
  * @method \Spryker\Zed\ProductOptionStorage\Communication\ProductOptionStorageCommunicationFactory getFactory()
  */
-class ProductOptionValueStorageListener extends AbstractProductOptionStorageListener implements EventBulkHandlerInterface
+class ProductOptionValuePriceStorageListener extends AbstractProductOptionStorageListener implements EventBulkHandlerInterface
 {
 
     use DatabaseTransactionHandlerTrait;
@@ -31,12 +31,12 @@ class ProductOptionValueStorageListener extends AbstractProductOptionStorageList
     public function handleBulk(array $eventTransfers, $eventName)
     {
         $this->preventTransaction();
-        $productOptionGroupsIds = $this->getFactory()
+        $productOptionValueIds = $this->getFactory()
             ->getEventBehaviorFacade()
-            ->getEventTransferForeignKeys($eventTransfers, SpyProductOptionValueTableMap::COL_FK_PRODUCT_OPTION_GROUP);
+            ->getEventTransferForeignKeys($eventTransfers, SpyProductOptionValuePriceTableMap::COL_FK_PRODUCT_OPTION_VALUE);
 
         $productAbstractIds = $this->getQueryContainer()
-            ->queryProductAbstractIdsByProductGroupOptionByIds($productOptionGroupsIds)
+            ->queryProductAbstractIdsByProductValueOptionByIds($productOptionValueIds)
             ->find()
             ->getData();
 
