@@ -177,10 +177,9 @@ class ProductOptionStorageReader implements ProductOptionStorageReaderInterface
             if ($localeName === null) {
                 $localeName = $this->localeClient->getCurrentLocale();
             }
-            $clientLocatorClass = Locator::class;
-            /** @var \Generated\Zed\Ide\AutoCompletion&\Spryker\Shared\Kernel\LocatorLocatorInterface $locator */
-            $locator = $clientLocatorClass::getInstance();
-            $productOptionClient = $locator->productOption()->client();
+            $clientLocatorName = Locator::class;
+            /** @var \Spryker\Client\ProductOption\ProductOptionClientInterface $productOptionClient */
+            $productOptionClient = $clientLocatorName::getInstance()->productOption()->client();
 
             $collectorData = $productOptionClient->getProductOptions($idProductAbstract, $localeName);
 
