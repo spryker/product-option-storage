@@ -58,9 +58,6 @@ class ProductOptionStorageListenerTest extends Unit
      */
     protected $productOptionGroupTransfer;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -97,9 +94,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assignOptionGroupToProductAbstract($this->productOptionGroupTransfer, $this->productAbstractTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testProductOptionPublishStorageListenerStoreData(): void
     {
         SpyProductAbstractOptionStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->delete();
@@ -117,9 +111,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertProductAbstractOptionStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductOptionStorageListenerStoreData(): void
     {
         SpyProductAbstractOptionStorageQuery::create()->filterByFkProductAbstract($this->productAbstractTransfer->getIdProductAbstract())->delete();
@@ -139,9 +130,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertProductAbstractOptionStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductOptionGroupStorageListenerStoreData(): void
     {
         $productOptionStorageQueryContainer = new ProductOptionStorageQueryContainer();
@@ -162,9 +150,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertProductAbstractOptionGroupStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductOptionValueStorageListenerStoreData(): void
     {
         $productOptionStorageQueryContainer = new ProductOptionStorageQueryContainer();
@@ -186,9 +171,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertProductAbstractOptionGroupStorage($beforeCount);
     }
 
-    /**
-     * @return void
-     */
     public function testProductOptionValuePriceStorageListenerStoreData(): void
     {
         $productOptionStorageQueryContainer = new ProductOptionStorageQueryContainer();
@@ -218,9 +200,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertProductAbstractOptionGroupStorage($beforeCount);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductOptionStorage\Business\ProductOptionStorageFacade
-     */
     protected function getProductOptionStorageFacade(): ProductOptionStorageFacade
     {
         $factory = new ProductOptionStorageBusinessFactory();
@@ -232,22 +211,12 @@ class ProductOptionStorageListenerTest extends Unit
         return $facade;
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertProductAbstractOptionGroupStorage(int $beforeCount): void
     {
         $productOptionStorageCount = SpyProductAbstractOptionStorageQuery::create()->count();
         $this->assertGreaterThan($beforeCount, $productOptionStorageCount);
     }
 
-    /**
-     * @param int $beforeCount
-     *
-     * @return void
-     */
     protected function assertProductAbstractOptionStorage(int $beforeCount): void
     {
         $productOptionStorageCount = SpyProductAbstractOptionStorageQuery::create()->count();
@@ -258,12 +227,6 @@ class ProductOptionStorageListenerTest extends Unit
         $this->assertSame(1, count($data['product_option_groups']));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionGroupTransfer $productOptionGroupTransfer
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return void
-     */
     protected function assignOptionGroupToProductAbstract(
         ProductOptionGroupTransfer $productOptionGroupTransfer,
         ProductAbstractTransfer $productAbstractTransfer

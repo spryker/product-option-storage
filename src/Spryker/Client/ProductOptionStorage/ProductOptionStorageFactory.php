@@ -50,9 +50,6 @@ class ProductOptionStorageFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductOptionStorageDependencyProvider::SERVICE_SYNCHRONIZATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductOptionStorage\Dependency\Service\ProductOptionStorageToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): ProductOptionStorageToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(ProductOptionStorageDependencyProvider::SERVICE_UTIL_ENCODING);
@@ -69,9 +66,6 @@ class ProductOptionStorageFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductOptionStorage\Mapper\ProductOptionMapperInterface
-     */
     public function createProductOptionMapper(): ProductOptionMapperInterface
     {
         return new ProductOptionMapper();
@@ -93,17 +87,11 @@ class ProductOptionStorageFactory extends AbstractFactory
         return $this->getProvidedDependency(ProductOptionStorageDependencyProvider::CLIENT_CURRENCY);
     }
 
-    /**
-     * @return \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToStoreClientInterface
-     */
     public function getStoreClient(): ProductOptionStorageToStoreClientInterface
     {
         return $this->getProvidedDependency(ProductOptionStorageDependencyProvider::CLIENT_STORE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToLocaleClientInterface
-     */
     public function getLocaleClient(): ProductOptionStorageToLocaleClientInterface
     {
         return $this->getProvidedDependency(ProductOptionStorageDependencyProvider::CLIENT_LOCALE);

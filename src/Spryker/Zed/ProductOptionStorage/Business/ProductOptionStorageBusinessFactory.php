@@ -18,9 +18,6 @@ use Spryker\Zed\ProductOptionStorage\ProductOptionStorageDependencyProvider;
  */
 class ProductOptionStorageBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductOptionStorage\Business\Storage\ProductOptionStorageWriterInterface
-     */
     public function createProductOptionStorageWriter(): ProductOptionStorageWriterInterface
     {
         return new ProductOptionStorageWriter(

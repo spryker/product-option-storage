@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer;
 
 interface ValuePriceReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer
-     */
     public function resolveProductAbstractOptionStorageTransferProductOptionValuePrices(
         ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer
     ): ProductAbstractOptionStorageTransfer;

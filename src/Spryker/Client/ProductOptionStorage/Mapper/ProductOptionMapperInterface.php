@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer;
 
 interface ProductOptionMapperInterface
 {
-    /**
-     * @param array $productAbstractOptionStorageData
-     * @param \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer
-     */
     public function mapProductAbstractOptionStorageDataItemToProductAbstractOptionStorageTransfer(
         array $productAbstractOptionStorageData,
         ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer

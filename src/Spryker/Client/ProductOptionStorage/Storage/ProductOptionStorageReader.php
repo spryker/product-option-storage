@@ -60,15 +60,6 @@ class ProductOptionStorageReader implements ProductOptionStorageReaderInterface
      */
     private $localeClient;
 
-    /**
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToStorageInterface $storageClient
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToStoreClientInterface $storeClient
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Service\ProductOptionStorageToSynchronizationServiceInterface $synchronizationService
-     * @param \Spryker\Client\ProductOptionStorage\Price\ValuePriceReaderInterface $valuePriceReader
-     * @param \Spryker\Client\ProductOptionStorage\Mapper\ProductOptionMapperInterface $productOptionMapper
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Service\ProductOptionStorageToUtilEncodingServiceInterface $utilEncodingService
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToLocaleClientInterface $localeClient
-     */
     public function __construct(
         ProductOptionStorageToStorageInterface $storageClient,
         ProductOptionStorageToStoreClientInterface $storeClient,
@@ -87,22 +78,11 @@ class ProductOptionStorageReader implements ProductOptionStorageReaderInterface
         $this->localeClient = $localeClient;
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer|null
-     */
     public function getProductOptions(int $idProductAbstract, string $localeName): ?ProductAbstractOptionStorageTransfer
     {
         return $this->findProductOptionsByByIdProductAbstract($idProductAbstract, $localeName);
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer|null
-     */
     public function getProductOptionsForCurrentStore(int $idProductAbstract): ?ProductAbstractOptionStorageTransfer
     {
         return $this->findProductOptionsByByIdProductAbstract($idProductAbstract);
@@ -135,12 +115,6 @@ class ProductOptionStorageReader implements ProductOptionStorageReaderInterface
         );
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param string|null $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer|null
-     */
     protected function findProductOptionsByByIdProductAbstract(
         int $idProductAbstract,
         ?string $localeName = null
@@ -226,11 +200,6 @@ class ProductOptionStorageReader implements ProductOptionStorageReaderInterface
         return $productOptionStorageDataItems;
     }
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
     protected function generateStorageKey(int $idProductAbstract): string
     {
         $synchronizationDataTransfer = (new SynchronizationDataTransfer())

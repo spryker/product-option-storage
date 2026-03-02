@@ -35,10 +35,6 @@ class ValuePriceReader implements ValuePriceReaderInterface
      */
     protected static $currentPriceModeBuffer;
 
-    /**
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToCurrencyClientInterface $currencyClient
-     * @param \Spryker\Client\ProductOptionStorage\Dependency\Client\ProductOptionStorageToPriceClientInterface $priceClient
-     */
     public function __construct(
         ProductOptionStorageToCurrencyClientInterface $currencyClient,
         ProductOptionStorageToPriceClientInterface $priceClient
@@ -47,11 +43,6 @@ class ValuePriceReader implements ValuePriceReaderInterface
         $this->priceClient = $priceClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer
-     */
     public function resolveProductAbstractOptionStorageTransferProductOptionValuePrices(
         ProductAbstractOptionStorageTransfer $productAbstractOptionStorageTransfer
     ): ProductAbstractOptionStorageTransfer {
@@ -92,13 +83,6 @@ class ValuePriceReader implements ValuePriceReaderInterface
         return $productAbstractOptionStorageTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionValueStorageTransfer $productOptionValueStorageTransfer
-     * @param string $currencyCode
-     * @param string $priceMode
-     *
-     * @return void
-     */
     protected function resolveProductOptionValuePrice(
         ProductOptionValueStorageTransfer $productOptionValueStorageTransfer,
         string $currencyCode,
@@ -109,9 +93,6 @@ class ValuePriceReader implements ValuePriceReaderInterface
         $productOptionValueStorageTransfer->setPrice($price);
     }
 
-    /**
-     * @return string
-     */
     protected function getCurrentCurrencyCode(): string
     {
         if (static::$currentCurrencyCodeBuffer === null) {
@@ -121,9 +102,6 @@ class ValuePriceReader implements ValuePriceReaderInterface
         return static::$currentCurrencyCodeBuffer;
     }
 
-    /**
-     * @return string
-     */
     protected function getCurrentPriceMode(): string
     {
         if (static::$currentPriceModeBuffer === null) {

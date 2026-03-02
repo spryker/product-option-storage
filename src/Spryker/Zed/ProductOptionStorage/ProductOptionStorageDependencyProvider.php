@@ -117,11 +117,6 @@ class ProductOptionStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionFacade(Container $container): Container
     {
         $container->set(static::FACADE_PRODUCT_OPTION, function (Container $container) {
@@ -131,11 +126,6 @@ class ProductOptionStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionQueryContainer(Container $container): Container
     {
         $container->set(static::QUERY_CONTAINER_PRODUCT_OPTION, function (Container $container) {
@@ -145,11 +135,6 @@ class ProductOptionStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductQueryContainer(Container $container): Container
     {
         $container->set(static::QUERY_CONTAINER_PRODUCT, function (Container $container) {
@@ -159,11 +144,6 @@ class ProductOptionStorageDependencyProvider extends AbstractBundleDependencyPro
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addProductOptionCollectionFilterPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_PRODUCT_OPTION_COLLECTION_FILTER, function (Container $container) {

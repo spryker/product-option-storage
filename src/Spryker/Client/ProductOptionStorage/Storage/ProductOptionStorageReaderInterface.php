@@ -11,19 +11,8 @@ use Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer;
 
 interface ProductOptionStorageReaderInterface
 {
-    /**
-     * @param int $idProductAbstract
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer|null
-     */
     public function getProductOptions(int $idProductAbstract, string $localeName): ?ProductAbstractOptionStorageTransfer;
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractOptionStorageTransfer|null
-     */
     public function getProductOptionsForCurrentStore(int $idProductAbstract): ?ProductAbstractOptionStorageTransfer;
 
     /**
