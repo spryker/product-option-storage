@@ -40,4 +40,14 @@ class ProductOptionStorageConfig extends AbstractBundleConfig
      * @var string
      */
     public const PRODUCT_ABSTRACT_OPTION_RESOURCE_NAME = 'product_abstract_option';
+
+    /**
+     * Specification:
+     * - Queue name used for product option publish events.
+     *
+     * @api
+     *
+     * @var string
+     */
+    public const string PUBLISH_PRODUCT_OPTION_QUEUE = 'publish.product_option';
 }
